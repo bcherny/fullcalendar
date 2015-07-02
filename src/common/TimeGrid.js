@@ -94,7 +94,7 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 					(isLabeled ? '' : ' class="fc-minor"') +
 					'>' +
 					(!isRTL ? axisHtml : '') +
-					'<td class="' + view.widgetContentClass + '"/>' +
+					'<td class="' + view.widgetContentClass + '" data-time="' + slotDate.format('h:mm A') + '" />' +
 					(isRTL ? axisHtml : '') +
 				"</tr>";
 
