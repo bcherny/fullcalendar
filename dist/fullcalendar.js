@@ -5758,7 +5758,7 @@ var TimeGrid = Grid.extend({
 			html +=
 				'<tr ' + (!minutes ? '' : 'class="fc-minor"') + '>' +
 					(!isRTL ? axisHtml : '') +
-					'<td class="' + view.widgetContentClass + '"/>' +
+					'<td class="' + view.widgetContentClass + '" data-time="' + slotDate.format('h:mm A') + '" />' +
 					(isRTL ? axisHtml : '') +
 				"</tr>";
 
