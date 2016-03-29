@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v2.3.2
+ * FullCalendar v2.3.3-bcherny
  * Docs & License: http://fullcalendar.io/
  * (c) 2015 Adam Shaw
  */
@@ -18,7 +18,7 @@
 
 ;;
 
-var fc = $.fullCalendar = { version: "2.3.2" };
+var fc = $.fullCalendar = { version: "2.3.3-bcherny" };
 var fcViews = fc.views = {};
 
 
@@ -3135,13 +3135,17 @@ var Grid = fc.Grid = RowRenderer.extend({
 
 	// Binds DOM handlers to elements that reside outside the grid, such as the document
 	bindGlobalHandlers: function() {
-		$(document).on('dragstart sortstart', this.externalDragStartProxy); // jqui
+		if (this.view.opt('droppable')) {
+			$(document).on('dragstart sortstart', this.externalDragStartProxy); // jqui
+		}
 	},
 
 
 	// Unbinds DOM handlers from elements that reside outside the grid
 	unbindGlobalHandlers: function() {
-		$(document).off('dragstart sortstart', this.externalDragStartProxy); // jqui
+		if (this.view.opt('droppable')) {
+			$(document).off('dragstart sortstart', this.externalDragStartProxy); // jqui
+		}
 	},
 
 
