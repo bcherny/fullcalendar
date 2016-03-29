@@ -337,13 +337,17 @@ var Grid = fc.Grid = RowRenderer.extend({
 
 	// Binds DOM handlers to elements that reside outside the grid, such as the document
 	bindGlobalHandlers: function() {
-		$(document).on('dragstart sortstart', this.externalDragStartProxy); // jqui
+		if (this.view.opt('droppable')) {
+			$(document).on('dragstart sortstart', this.externalDragStartProxy); // jqui
+		}
 	},
 
 
 	// Unbinds DOM handlers from elements that reside outside the grid
 	unbindGlobalHandlers: function() {
-		$(document).off('dragstart sortstart', this.externalDragStartProxy); // jqui
+		if (this.view.opt('droppable')) {
+			$(document).off('dragstart sortstart', this.externalDragStartProxy); // jqui
+		}
 	},
 
 
